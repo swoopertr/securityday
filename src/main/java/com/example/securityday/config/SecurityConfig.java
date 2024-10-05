@@ -29,6 +29,7 @@ public class SecurityConfig {
         DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
         provider.setUserDetailsService(userDetailsService);
         provider.setPasswordEncoder(passwordEncoder());
+
         return new ProviderManager(provider);
     }
 
@@ -37,11 +38,12 @@ public class SecurityConfig {
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
         return httpSecurity.csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests( auth ->{
-                    auth.requestMatchers("/hello/**").permitAll();
-                    auth.requestMatchers("/auth/**").permitAll();
-                    auth.requestMatchers("/users/**").authenticated();
-                    auth.requestMatchers("/admin/**").hasAuthority("ADMIN");
-                    auth.requestMatchers("/users/profile/**").hasAuthority("USER");
+                    auth.anyRequest().permitAll();
+//                    auth.requestMatchers("/hello/**").permitAll();
+//                    auth.requestMatchers("/auth/**").permitAll();
+//                    auth.requestMatchers("/users/**").authenticated();
+//                    auth.requestMatchers("/admin/**").hasAuthority("ADMIN");
+//                    auth.requestMatchers("/users/profile/**").hasAuthority("USER");
                     //auth.anyRequest().authenticated();
                     //auth.anyRequest().permitAll();
                     //auth.anyRequest().authenticated();

@@ -18,4 +18,13 @@ public class RoleMapper {
         }
         return result;
     }
+
+    public static com.example.securityday.entity.cache.Role RoleToRoleCache(Role role){
+        return new com.example.securityday.entity.cache.Role(
+                role.getId(),
+                role.getAuthority()
+        );
+    }
+
+
 }

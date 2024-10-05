@@ -1,6 +1,6 @@
 package com.example.securityday.service.impl;
 
-import com.example.securityday.entity.ApplicationUser;
+
 import com.example.securityday.repository.IUserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
